@@ -43,12 +43,11 @@ def page2():
     def quitter():
         quit()
 
-    #Menu édition de blocs
-    menuedit = Menu(menu , tearoff=0)
 
     # Menu en haut a gauche
 
     menu = Menu(jeu)
+
 
 
     # Menu1
@@ -70,7 +69,10 @@ def page2():
     menu4.add_command(label="Performances", command=alert)
     menu4.add_command(label="Disques de Travail", command=alert)
 
-
+    # Menu édition de blocs
+    menuedit = Menu(menu, tearoff=0)
+    menuedit.add_command(label="Ajouter un choix", command=alert)
+    menuedit.add_command(label="Supprimer un choix", command=alert)
 
     # Menu2
     menu2 = Menu(menu, tearoff=0)
@@ -78,7 +80,7 @@ def page2():
     menu2.add_command(label="Rétablir", command=alert)
     menu2.add_separator()
     menu2.add_command(label="Ajouter un bloc", command=alert)
-    menu2.add_cascade(label="Editer un bloc", command=alert)
+    menu2.add_cascade(label="Editer un bloc", menu=menuedit)
     menu2.add_command(label="Supprimer un bloc", command=alert)
     menu2.add_separator()
     menu2.add_command(label="Rechercher", command=alert)
@@ -203,17 +205,19 @@ menu4.add_command(label="Interface", command=fichiers)
 menu4.add_command(label="Performances", command=alert)
 menu4.add_command(label="Disques de Travail", command=alert)
 
+# Menu édition de blocs
+menuedit = Menu(menu, tearoff=0)
+menuedit.add_command(label="Ajouter un choix", command=alert)
+menuedit.add_command(label="Supprimer un choix", command=alert)
+
 #Menu2
 menu2 = Menu(menu, tearoff=0)
 menu2.add_command(label="Annuler", command=alert)
 menu2.add_command(label="Rétablir", command=alert)
 menu2.add_separator()
 menu2.add_command(label="Ajouter un bloc", command=alert)
-menu2.add_cascade(label="Editer un bloc", command=alert)
+menu2.add_cascade(label="Editer un bloc", menu=menuedit)
 menu2.add_command(label="Supprimer un bloc", command=alert)
-menu2.add_separator()
-menu2.add_command(label="Ajouter un choix", command=alert)
-menu2.add_command(label="Supprimer un choix", command=alert)
 menu2.add_separator()
 menu2.add_command(label="Rechercher", command=alert)
 menu2.add_cascade(label="Préferences", menu=menu4)
