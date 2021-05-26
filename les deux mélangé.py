@@ -36,18 +36,24 @@ def page2():
         canvas.pack()
 
     def alert():
-        showinfo("A Changer", "L'alerte askip")
+        showinfo("A Changer", "amdoulila quoi")
+
+
 
     def quitter():
         quit()
+
+    #Menu édition de blocs
+    menuedit = Menu(menu , tearoff=0)
 
     # Menu en haut a gauche
 
     menu = Menu(jeu)
 
+
     # Menu1
     menu1 = Menu(menu, tearoff=0)
-    menu1.add_command(label="Nouveau", command=alert)
+    menu1.add_command(label="Nouveau", command=fonction1(destroy, page2))
     menu1.add_command(label="Ouvrir", command=fichiers)
     menu1.add_command(label="Enregistrer Sous", command=alert)
     menu1.add_command(label="Modifier", command=alert)
@@ -64,14 +70,16 @@ def page2():
     menu4.add_command(label="Performances", command=alert)
     menu4.add_command(label="Disques de Travail", command=alert)
 
+
+
     # Menu2
     menu2 = Menu(menu, tearoff=0)
     menu2.add_command(label="Annuler", command=alert)
     menu2.add_command(label="Rétablir", command=alert)
     menu2.add_separator()
-    menu2.add_command(label="Couper", command=alert)
-    menu2.add_command(label="Copier", command=alert)
-    menu2.add_command(label="Coller", command=alert)
+    menu2.add_command(label="Ajouter un bloc", command=alert)
+    menu2.add_cascade(label="Editer un bloc", command=alert)
+    menu2.add_command(label="Supprimer un bloc", command=alert)
     menu2.add_separator()
     menu2.add_command(label="Rechercher", command=alert)
     menu2.add_cascade(label="Préferences", menu=menu4)
@@ -83,7 +91,7 @@ def page2():
     menu3 = Menu(menu, tearoff=0)
     menu3.add_command(label="Nous Contacter", command=alert)
     menu3.add_separator()
-    menu3.add_command(label="A propos", command=alert)
+    menu3.add_command(label="A propos du jeu", command=alert)
 
     menu.add_cascade(label="Aide", menu=menu3)
 
@@ -93,12 +101,21 @@ def page2():
     frame = Frame(jeu)
     frame2 = Frame(jeu)
 
+    # Texte de création de l'histoire
+    etiquette = Label(frame2, text='Nom Histoire : ')
+    etiquette.pack(padx=5, pady=5, side=TOP)
+
+    entree = Entry(frame2, width=50)
+    entree.pack(padx=5, pady=5)
+    entree.focus_force()
+
     # texte Crée perso
     label_subtitle = Label(frame, text="Crée ta propre Histoire", font=("Courrier.tff", 40), fg='#000000',
                            relief="flat")
     label_subtitle.pack(side=TOP)
 
     # Zone de text
+
     etiquette = Label(frame2, text='Nom du personnage :')
     etiquette.pack(padx=5, pady=5, side=TOP)
 
@@ -169,7 +186,7 @@ menu = Menu(f)
 
 #Menu1
 menu1 = Menu(menu, tearoff=0)
-menu1.add_command(label="Nouveau", command=alert)
+menu1.add_command(label="Nouveau", command=fonction1(destroy, page2))
 menu1.add_command(label="Ouvrir", command=fichiers)
 menu1.add_command(label="Enregistrer Sous", command=alert)
 menu1.add_command(label="Modifier", command=alert)
@@ -191,9 +208,12 @@ menu2 = Menu(menu, tearoff=0)
 menu2.add_command(label="Annuler", command=alert)
 menu2.add_command(label="Rétablir", command=alert)
 menu2.add_separator()
-menu2.add_command(label="Couper", command=alert)
-menu2.add_command(label="Copier", command=alert)
-menu2.add_command(label="Coller", command=alert)
+menu2.add_command(label="Ajouter un bloc", command=alert)
+menu2.add_cascade(label="Editer un bloc", command=alert)
+menu2.add_command(label="Supprimer un bloc", command=alert)
+menu2.add_separator()
+menu2.add_command(label="Ajouter un choix", command=alert)
+menu2.add_command(label="Supprimer un choix", command=alert)
 menu2.add_separator()
 menu2.add_command(label="Rechercher", command=alert)
 menu2.add_cascade(label="Préferences", menu=menu4)
@@ -205,7 +225,7 @@ menu.add_cascade(label="Edition", menu=menu2)
 menu3 = Menu(menu, tearoff=0)
 menu3.add_command(label="Nous Contacter", command=alert)
 menu3.add_separator()
-menu3.add_command(label="A propos", command=alert)
+menu3.add_command(label="A propos du jeu", command=alert)
 
 menu.add_cascade(label="Aide", menu=menu3)
 
