@@ -1,0 +1,3 @@
+Tu n'as pas reussit a terminer sans mourrir. 
+#La partie est terminée, bien joué, tu as réussi a aller jusqu'a la fin.
+#
